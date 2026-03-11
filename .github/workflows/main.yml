@@ -1,0 +1,26 @@
+name: Weather Email Bot
+
+on:
+  schedule:
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+
+jobs:
+  run-weather:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Build project
+        run: mvn clean install
+
+      - name: Run application
+        run: mvn exec:java -Dexec.mainClass="com.mycompany.proyectoeltiempo.MainPrincipal"
