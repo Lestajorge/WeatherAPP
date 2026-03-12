@@ -76,7 +76,7 @@ public class EmailService {
 
                 </body>
                 </html>
-                        """.formatted(iconoURl, weather.getMain().getName(), weather.getMain().getTemp(), weather.getMain().getTemp_max(),
+                        """.formatted(iconoURl, weather.getName(), weather.getMain().getTemp(), weather.getMain().getTemp_max(),
                      weather.getMain().getTemp_min());
 
             message.setContent(html, "text/html");
