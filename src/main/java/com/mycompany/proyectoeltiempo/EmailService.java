@@ -47,9 +47,9 @@ public class EmailService {
             InternetAddress addressDestino = new InternetAddress("jorge_lesta@hotmail.com");
             message.setRecipient(Message.RecipientType.TO, addressDestino);
 
-            Map weatherMap = (Map) weather.getWeather().get(0); 
+           
             
-            String iconCode = (String)weatherMap.get("icon"); 
+            String iconCode = weather.getWeatherInfo().get(0).getIcon(); 
 
             String iconoUrl = "https://openweathermap.org/img/wn/" + iconCode + "@4x.png";
             message.setSubject("El tiempo de hoy");

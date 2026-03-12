@@ -14,11 +14,13 @@ public class Weather {
     
     private Main main ; 
     private String name ;
-    private List weather ; 
+    private List<WeatherInfo> weatherInfo ; 
 
-    public List getWeather() {
-        return weather;
+    public List<WeatherInfo> getWeatherInfo() {
+        return weatherInfo;
     }
+
+   
 
     public String getName() {
         return name;
