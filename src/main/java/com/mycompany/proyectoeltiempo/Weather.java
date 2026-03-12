@@ -4,6 +4,8 @@
  */
 package com.mycompany.proyectoeltiempo;
 
+import java.util.List;
+
 /**
  *
  * @author jorge
@@ -11,6 +13,12 @@ package com.mycompany.proyectoeltiempo;
 public class Weather {
     
     private Main main ; 
+    private String name ;
+    private List weather ; 
+
+    public List getWeather() {
+        return weather;
+    }
 
     public String getName() {
         return name;
@@ -19,7 +27,6 @@ public class Weather {
     public void setName(String name) {
         this.name = name;
     }
-    private String name ;
     
     public Main getMain() {
         return main;

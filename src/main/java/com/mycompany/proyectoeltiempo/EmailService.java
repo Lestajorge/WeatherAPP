@@ -9,6 +9,7 @@ import jakarta.mail.*;
 import jakarta.mail.internet.*;
 import jakarta.mail.Session;
 import jakarta.mail.Authenticator;
+import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,7 +47,11 @@ public class EmailService {
             InternetAddress addressDestino = new InternetAddress("jorge_lesta@hotmail.com");
             message.setRecipient(Message.RecipientType.TO, addressDestino);
 
-            String iconoURl = "https://openweathermap.org/img/wn/01d@4x.png";
+            Map weatherMap = (Map) weather.getWeather().get(0); 
+            
+            String iconCode = (String)weatherMap.get("icon"); 
+
+            String iconoUrl = "https://openweathermap.org/img/wn/" + iconCode + "@4x.png";
             message.setSubject("El tiempo de hoy");
             String html = """
                 <html>
@@ -84,7 +89,7 @@ public class EmailService {
 
                 </body>
                 </html>
-                        """.formatted(iconoURl, weather.getName(), Math.round(weather.getMain().getTemp()), Math.round(weather.getMain().getTemp_max()),
+                        """.formatted(iconoUrl, weather.getName(), Math.round(weather.getMain().getTemp()), Math.round(weather.getMain().getTemp_max()),
                     Math.round(weather.getMain().getTemp_min()));
 
             message.setContent(html, "text/html; charset=UTF-8");
