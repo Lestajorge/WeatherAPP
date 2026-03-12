@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class EmailService {
 
-    void sendEmail(String mensaje) {
+    void sendEmail(Weather weather) {
 
         Properties props = new Properties();
 
@@ -38,27 +38,33 @@ public class EmailService {
 
         });
 
-    
-     
-        try { 
+        try {
             InternetAddress address = new InternetAddress("jorge_lesta476@gmail.com");
-            Message message = new MimeMessage(session); 
+            Message message = new MimeMessage(session);
             message.setFrom(address);
-            InternetAddress addressDestino = new InternetAddress("jorge_lesta@hotmail.com"); 
-            message.setRecipient(Message.RecipientType.TO, addressDestino); 
+            InternetAddress addressDestino = new InternetAddress("jorge_lesta@hotmail.com");
+            message.setRecipient(Message.RecipientType.TO, addressDestino);
             message.setSubject("El tiempo de hoy");
-            message.setText(mensaje);
+
+            String html = "<html>"
+                    + "<body>"
+                    + "<h1>WeatherApp</h1>"
+                    + "<p>Ciudad: " + weather.getMain().getCiudad() + "</p>"
+                    + "<p>Temperatura: " + weather.getMain().getTemp() + "°C</p>"
+                    + "<p>Temperatura Minima: " + weather.getMain().getTemp_min() + "°C</p>"
+                    + "<p>Temperatura Maxima: " + weather.getMain().getTemp_max() + "°C</p>"
+                    + "</body>"
+                    + "</html>";
+
+            message.setContent(html, "text/html");
+
             Transport.send(message);
-            
-            
-            
-            
+
         } catch (AddressException ex) {
             Logger.getLogger(EmailService.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MessagingException ex) {
             Logger.getLogger(EmailService.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-        
+
     }
 }

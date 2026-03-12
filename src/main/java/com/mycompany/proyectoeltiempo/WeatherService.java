@@ -58,14 +58,12 @@ public class WeatherService {
                 Gson gson = new Gson(); 
                 Weather w = gson.fromJson(sb.toString(),Weather.class); 
                 
-                String tiempo = ("Temperatura:" + w.getMain().temp + "\n" +
-                "Temperatura Maxima:" + w.getMain().temp_max + "\n" +
-                        "Temperatura minina:" + w.getMain().temp_min);
+                
                 
                EmailService es = new EmailService(); 
                
-               es.sendEmail(tiempo);
-                
+               es.sendEmail(w);
+               
              
                 
                 
