@@ -71,7 +71,7 @@ public class EmailService {
 
                 <h2 style="color:white;margin:5px 0;">%s</h2>
 
-               <h1 style="font-size:48px;margin:10px 0;">%s%s&deg;C</h1>
+               <h1 style="font-size:48px;margin:10px 0;">%s&deg;C</h1>
                <hr style="border:none;border-top:1px solid #eee;margin:20px 0;">
                <table width="100%%">
                 <tr>
