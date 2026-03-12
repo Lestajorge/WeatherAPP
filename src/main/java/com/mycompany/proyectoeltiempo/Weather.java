@@ -10,8 +10,17 @@ package com.mycompany.proyectoeltiempo;
  */
 public class Weather {
     
-    public Main main ; 
+    private Main main ; 
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    private String name ;
+    
     public Main getMain() {
         return main;
     }
