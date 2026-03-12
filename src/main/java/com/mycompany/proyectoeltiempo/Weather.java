@@ -14,10 +14,10 @@ public class Weather {
     
     private Main main ; 
     private String name ;
-    private List<WeatherInfo> weatherInfo ; 
+    private List<WeatherInfo> weather ; 
 
     public List<WeatherInfo> getWeatherInfo() {
-        return weatherInfo;
+        return weather;
     }
 
    
