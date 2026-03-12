@@ -50,8 +50,11 @@ public class EmailService {
             message.setSubject("El tiempo de hoy");
             String html = """
                 <html>
+                <head>
+                <meta charset="UTF-8">
+                </head>
                 <body style="background:#f2f2f2;font-family:Arial;text-align:center;">
-
+                      
                 <div style="
                 max-width:400px;
                 margin:auto;
@@ -79,7 +82,7 @@ public class EmailService {
                         """.formatted(iconoURl, weather.getName(), weather.getMain().getTemp(), weather.getMain().getTemp_max(),
                      weather.getMain().getTemp_min());
 
-            message.setContent(html, "text/html");
+            message.setContent(html, "text/html ; charset=UTF-8");
 
             Transport.send(message);
 
