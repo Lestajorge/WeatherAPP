@@ -53,7 +53,7 @@ public class EmailService {
                 <head>
                 <meta charset="UTF-8">
                 </head>
-                background:#4facfe;
+                <body style="background:#4facfe;font-family:Arial;text-align:center;">
                       
                 <div style="
                 max-width:400px;
@@ -71,14 +71,14 @@ public class EmailService {
 
                 <h2 style="color:white;margin:5px 0;">%s</h2>
 
-               <h1 style="font-size:48px;margin:10px 0;">%s&deg;C</h1>
+               <h1 style="font-size:48px;margin:10px 0;">%s%s&deg;C</h1>
                <hr style="border:none;border-top:1px solid #eee;margin:20px 0;">
-               <table width="100%">
+               <table width="100%%">
                 <tr>
                 <td align="center">⬆ Max %s°C</td>
                 <td align="center">⬇ Min %s°C</td>
                 </tr>
-                </table>>
+                </table>
 
                 </div>
 
