@@ -53,7 +53,7 @@ public class EmailService {
                 <head>
                 <meta charset="UTF-8">
                 </head>
-                <body style="background:#f2f2f2;font-family:Arial;text-align:center;">
+                background:#4facfe;
                       
                 <div style="
                 max-width:400px;
@@ -73,19 +73,21 @@ public class EmailService {
 
                <h1 style="font-size:48px;margin:10px 0;">%s&deg;C</h1>
                <hr style="border:none;border-top:1px solid #eee;margin:20px 0;">
-               <div style="display:flex;justify-content:space-around;">
-               <p style="color:white;font-size:16px;">⬆ Max %s&deg;C</p>
-                <p style="color:white;font-size:16px;">⬇ Min %s&deg;C</p>
-                </div>
+               <table width="100%">
+                <tr>
+                <td align="center">⬆ Max %s°C</td>
+                <td align="center">⬇ Min %s°C</td>
+                </tr>
+                </table>>
 
                 </div>
 
                 </body>
                 </html>
-                        """.formatted(iconoURl, weather.getName(), weather.getMain().getTemp(), weather.getMain().getTemp_max(),
-                    weather.getMain().getTemp_min());
+                        """.formatted(iconoURl, weather.getName(), Math.round(weather.getMain().getTemp()), Math.round(weather.getMain().getTemp_max()),
+                    Math.round(weather.getMain().getTemp_min()));
 
-            message.setContent(html, "text/html ; charset=UTF-8");
+            message.setContent(html, "text/html; charset=UTF-8");
 
             Transport.send(message);
 
