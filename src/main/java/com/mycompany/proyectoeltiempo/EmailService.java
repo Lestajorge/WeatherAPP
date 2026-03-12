@@ -58,29 +58,32 @@ public class EmailService {
                 <div style="
                 max-width:400px;
                 margin:auto;
-                background:white;
-                padding:20px;
-                border-radius:10px;
-                box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+                background: linear-gradient(135deg,#4facfe,#00f2fe);
+                padding:35px;
+                border-radius:15px;
+               
+                box-shadow:0 10px 25px rgba(0,0,0,0.2);
+                
                 ">
 
-                <h1 style="color:#4a90e2;">WeatherApp</h1>
+              <h1 style="color:white;">WeatherApp</h1>
+                <img src="%s" width="120" style="margin:10px;">
 
-                <img src="%s" width="100">
+                <h2 style="color:white;margin:5px 0;">%s</h2>
 
-                <h2>%s</h2>
-
-                <h1>%s°C</h1>
-
-                <p>TempMAX: %sªC</p>
-                <p>TempMIN: %sºC</p>
+               <h1 style="font-size:48px;margin:10px 0;">%s&deg;C</h1>
+               <hr style="border:none;border-top:1px solid #eee;margin:20px 0;">
+               <div style="display:flex;justify-content:space-around;">
+               <p style="color:white;font-size:16px;">⬆ Max %s&deg;C</p>
+                <p style="color:white;font-size:16px;">⬇ Min %s&deg;C</p>
+                </div>
 
                 </div>
 
                 </body>
                 </html>
                         """.formatted(iconoURl, weather.getName(), weather.getMain().getTemp(), weather.getMain().getTemp_max(),
-                     weather.getMain().getTemp_min());
+                    weather.getMain().getTemp_min());
 
             message.setContent(html, "text/html ; charset=UTF-8");
 
