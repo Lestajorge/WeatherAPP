@@ -69,14 +69,14 @@ public class EmailService {
 
                 <h1>%s°C</h1>
 
-                <p>Humedad: %s%%</p>
-                <p>Viento: %s km/h</p>
+                <p>TempMAX: %sªC</p>
+                <p>TempMIN: %sºC</p>
 
                 </div>
 
                 </body>
                 </html>
-                        """.formatted(iconoURl, weather.getMain().getCiudad(), weather.getMain().getTemp(), weather.getMain().getTemp_max(),
+                        """.formatted(iconoURl, weather.getMain().getName(), weather.getMain().getTemp(), weather.getMain().getTemp_max(),
                      weather.getMain().getTemp_min());
 
             message.setContent(html, "text/html");

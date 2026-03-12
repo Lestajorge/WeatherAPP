@@ -37,14 +37,14 @@ public class Main {
     public Double temp ; 
     public Double temp_min ; 
     public  Double temp_max ; 
-    public String ciudad ; 
+    public String name ; 
 
-    public String getCiudad() {
-        return ciudad;
+    public String getName() {
+        return name;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public void setCiudad(String name) {
+        this.name = name;
     }
     
 }
