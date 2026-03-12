@@ -12,6 +12,7 @@ import jakarta.mail.Authenticator;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
 
 /**
  *
@@ -44,17 +45,39 @@ public class EmailService {
             message.setFrom(address);
             InternetAddress addressDestino = new InternetAddress("jorge_lesta@hotmail.com");
             message.setRecipient(Message.RecipientType.TO, addressDestino);
-            message.setSubject("El tiempo de hoy");
 
-            String html = "<html>"
-                    + "<body>"
-                    + "<h1>WeatherApp</h1>"
-                    + "<p>Ciudad: " + weather.getMain().getCiudad() + "</p>"
-                    + "<p>Temperatura: " + weather.getMain().getTemp() + "°C</p>"
-                    + "<p>Temperatura Minima: " + weather.getMain().getTemp_min() + "°C</p>"
-                    + "<p>Temperatura Maxima: " + weather.getMain().getTemp_max() + "°C</p>"
-                    + "</body>"
-                    + "</html>";
+            String iconoURl = "https://openweathermap.org/img/wn/01d@2x.png";
+            message.setSubject("El tiempo de hoy");
+            String html = """
+                <html>
+                <body style="background:#f2f2f2;font-family:Arial;text-align:center;">
+
+                <div style="
+                max-width:400px;
+                margin:auto;
+                background:white;
+                padding:20px;
+                border-radius:10px;
+                box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+                ">
+
+                <h1 style="color:#4a90e2;">WeatherApp</h1>
+
+                <img src="%s" width="100">
+
+                <h2>%s</h2>
+
+                <h1>%s°C</h1>
+
+                <p>Humedad: %s%%</p>
+                <p>Viento: %s km/h</p>
+
+                </div>
+
+                </body>
+                </html>
+                        """.formatted(iconoURl, weather.getMain().getCiudad(), weather.getMain().getTemp(), weather.getMain().getTemp_max(),
+                     weather.getMain().getTemp_min());
 
             message.setContent(html, "text/html");
 
