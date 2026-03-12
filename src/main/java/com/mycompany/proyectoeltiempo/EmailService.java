@@ -46,7 +46,7 @@ public class EmailService {
             InternetAddress addressDestino = new InternetAddress("jorge_lesta@hotmail.com");
             message.setRecipient(Message.RecipientType.TO, addressDestino);
 
-            String iconoURl = "https://openweathermap.org/img/wn/01d@2x.png";
+            String iconoURl = "https://openweathermap.org/img/wn/01d@4x.png";
             message.setSubject("El tiempo de hoy");
             String html = """
                 <html>
