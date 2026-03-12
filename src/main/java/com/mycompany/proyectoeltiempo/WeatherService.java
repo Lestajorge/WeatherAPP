@@ -26,7 +26,7 @@ public class WeatherService {
 
     public void getWeather() {
 
-        String url = "https://api.openweathermap.org/data/2.5/weather?q=A%20Coruna,ES&units=metric&appid=309e91a5d8a1468b066569ac58abf226";
+        String url = "https://api.openweathermap.org/data/2.5/weather?q=Ferrol,ES&units=metric&appid=309e91a5d8a1468b066569ac58abf226";
         try {
             URL apiUrl = new URL(url);
             System.out.println(apiUrl);
